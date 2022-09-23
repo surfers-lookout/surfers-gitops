@@ -1,0 +1,21 @@
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: surfersapi
+  description: Surf Forecast API Gateway
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=surferslookout'
+spec:
+  type: service
+  lifecycle: experimental
+  owner: surfer-crew
+  system: test
+  providesApis:
+    - alpha/surfersapi-tap3.tanzu.rocks
