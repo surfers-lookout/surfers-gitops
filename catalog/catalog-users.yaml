@@ -9,7 +9,7 @@ spec:
   type: team
   profile:
     displayName: Surfer Crew
-  parent: default-org
+  parent: surfers-org
   children: []
 
 ---

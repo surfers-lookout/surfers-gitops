@@ -3,10 +3,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: "alpha/surferslookout"
+  name: "surferslookout"
   description: Surfers Lookout Web System
 spec:
-  owner: alpha/surfer-crew
+  owner: surfer-crew
   domain: surfers
 
 ---
