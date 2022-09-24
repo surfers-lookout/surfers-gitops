@@ -15,7 +15,7 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: surfer-crew
-  system: surferslookout
+  owner: surfers-crew
+  system: surfers-system
   providesApis:
     - alpha/surfersapi-tap3.tanzu.rocks

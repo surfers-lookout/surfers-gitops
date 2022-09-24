@@ -7,6 +7,6 @@ metadata:
   description: Stores data for the surfers lookout service
 spec:
   type: database
-  owner: surfer-crew
-  system: surferslookout
+  owner: surfers-crew
+  system: surfers-system
 

@@ -13,8 +13,8 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: surfer-crew
-  system: surferslookout
+  owner: surfers-crew
+  system: surfers-system
   dependsOn:
     - resource:surferslookout-db
     - component:surfersapi

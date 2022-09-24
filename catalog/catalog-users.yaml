@@ -3,7 +3,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: surfer-crew
+  name: surfers-crew
   description: Team focused on the Surfer system
 spec:
   type: team
@@ -21,16 +21,6 @@ metadata:
 spec:
   profile:
     displayName: Surfer Dude A
-  memberOf: [surfer-crew]
+  memberOf: [surfers-crew]
 
 ---
-
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: surferslookout
-  description: Surfers Lookout Web System
-spec:
-  owner: surfer-crew
-  domain: surfers
-
