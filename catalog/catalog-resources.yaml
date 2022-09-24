@@ -5,11 +5,27 @@ kind: Resource
 metadata:
   name: surferslookout-db
   namespace: alpha
-  backstage.io/kubernetes-id: surferslookout-db
   description: Stores data for the surfers lookout service
+  annotations:
+    backstage.io/kubernetes-id: surferslookout-db
 spec:
   type: database
   owner: group:surfers-crew
   system: surfers-system
 
-  name: my-kubernetes-component
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: surferslookout-db-2
+  namespace: alpha
+  description: Stores data for the surfers lookout service
+  annotations:
+    backstage.io/kubernetes-id: surferslookout-db
+spec:
+  lifecycle: experimental
+  owner: group:surfers-crew
+  system: surfers-system
+
+  
