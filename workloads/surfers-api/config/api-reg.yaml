@@ -1,7 +1,7 @@
 apiVersion: apis.apps.tanzu.vmware.com/v1alpha1
 kind: APIDescriptor
 metadata:
-  name: surferweb-api-descriptor
+  name: surfers-api-descriptor
 spec:
   spec:
     description: "API Endpoints to provide climate data to the Surfers web front end"
