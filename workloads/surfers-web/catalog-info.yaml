@@ -2,6 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: surfersweb
+  namespace: alpha
   description: Surf Condition Web Reporter and Cams
   tags:
     - app-accelerator
@@ -13,7 +14,7 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: surfers-crew
+  owner: group:surfers-crew
   system: surfers-system
   dependsOn:
     - resource:surferslookout-db

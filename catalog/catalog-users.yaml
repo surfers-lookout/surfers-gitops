@@ -4,6 +4,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: surfers-crew
+  namespace: alpha
   description: Team focused on the Surfer system
 spec:
   type: team
@@ -18,6 +19,7 @@ apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
   name: surfer-a
+  namespace: alpha
 spec:
   profile:
     displayName: Surfer Dude A

@@ -2,6 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
   name: surfers-org
+  namespace: alpha
 spec:
   type: url
   targets:
