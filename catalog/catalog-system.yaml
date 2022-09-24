@@ -28,7 +28,20 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: test
-  description: Tanzu Application Platform GUI System
+  name: surferslookout
+  description: Surfers Lookout Web System
 spec:
-  owner: default-team
+  owner: surfer-crew
+  domain: surfers
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: surferslookout-db
+  description: Stores data for the surfers lookout service
+spec:
+  type: database
+  owner: surfer-crew
+  system: test

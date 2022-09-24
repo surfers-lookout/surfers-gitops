@@ -1,8 +1,10 @@
+
+---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: surfersweb
-  description: Surf Condition Web Reporter and Cams
+  name: surfersapi
+  description: Surf Forecast API Gateway
   tags:
     - app-accelerator
     - python
@@ -14,9 +16,6 @@ spec:
   type: service
   lifecycle: experimental
   owner: surfer-crew
-  dependsOn:
-    - resource:alpha/surferslookout-db
-    - component:surfersapi
-  consumesApis:
+  system: surferslookout
+  providesApis:
     - alpha/surfersapi-tap3.tanzu.rocks
-  
