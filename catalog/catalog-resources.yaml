@@ -14,5 +14,7 @@ spec:
   lifecycle: experimental
   owner: group:surfers-crew
   system: surfers-system
-
+  dependencyOf:
+    - component:surfersweb
+        
 ---
