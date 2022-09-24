@@ -27,7 +27,7 @@ spec:
       type: openapi
       location:
         path: "/api/v1/swagger.json"
-      owner: surfer-crew
+      owner: group:surfers-crew
       system: surferslookout
       description: "Surferslookout forecast api"
   source:
