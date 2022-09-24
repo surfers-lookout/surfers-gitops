@@ -24,7 +24,7 @@ metadata:
   annotations:
     backstage.io/kubernetes-id: surferslookout-db
 spec:
-  type: deployment
+  type: service
   lifecycle: experimental
   owner: group:surfers-crew
   system: surfers-system
