@@ -23,9 +23,7 @@ metadata:
   description: Stores data for the surfers lookout service
   annotations:
     backstage.io/kubernetes-id: surferslookout-db
-    backstage.io/kubernetes-label-selector:
-      app.kubernetes.io/part-of: 'surferslookout'
-      app: 'surferslookout-db'
+    backstage.io/kubernetes-label-selector: 'app=surferslookout-db'
 spec:
   type: service
   lifecycle: experimental
