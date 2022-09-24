@@ -1,47 +1,12 @@
-
----
-apiVersion: backstage.io/v1alpha1
-kind: Group
-metadata:
-  name: alpha/surfer-crew
-  description: Team focused on the Surfer system
-spec:
-  type: team
-  profile:
-    displayName: Surfer Crew
-  parent: default-org
-  children: []
-
----
-
-apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: surfer-a
-spec:
-  profile:
-    displayName: Surfer Dude A
-  memberOf: [alpha/surfer-crew]
-
 ---
 
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: alpha/surferslookout
+  name: "alpha/surferslookout"
   description: Surfers Lookout Web System
 spec:
   owner: alpha/surfer-crew
   domain: surfers
 
 ---
-
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: surferslookout-db
-  description: Stores data for the surfers lookout service
-spec:
-  type: database
-  owner: alpha/surfer-crew
-  system: alpha/surferslookout

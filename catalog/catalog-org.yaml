@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: surfers-org
+spec:
+  type: url
+  targets:
+    - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-users.yaml
+    - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-system.yaml
+    - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-resources.yaml
+    - https://github.com/davlloyd/surfers-gitops/blob/main/workload/surfersapi/catalog-info.yaml
+    - https://github.com/davlloyd/surfers-gitops/blob/main/workload/surfersweb/catalog-info.yaml
