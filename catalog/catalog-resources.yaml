@@ -8,7 +8,6 @@ metadata:
   description: Stores data for the surfers lookout service
 spec:
   type: database
-  location: surfers-org
   owner: group:surfers-crew
   system: surfers-system
 

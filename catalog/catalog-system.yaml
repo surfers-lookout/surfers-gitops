@@ -8,6 +8,6 @@ metadata:
   description: Surfers Lookout Web System
 spec:
   owner: group:surfers-crew
-  domain: surfers
+  domain: surfers-domain
 
 ---
