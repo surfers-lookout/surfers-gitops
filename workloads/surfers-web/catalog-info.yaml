@@ -17,7 +17,7 @@ spec:
   owner: group:surfers-crew
   system: surfers-system
   dependsOn:
-    - resource:surferslookout-db
+    - component:surferslookout-db
     - component:surfersapi
   consumesApis:
     - alpha/surfersapi-tap1.tanzu.rocks
