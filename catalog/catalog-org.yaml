@@ -9,5 +9,5 @@ spec:
     - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-users.yaml
     - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-system.yaml
     - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-resources.yaml
-    - https://github.com/davlloyd/surfers-gitops/blob/main/workloads/surfers-api/catalog-info.yaml
-    - https://github.com/davlloyd/surfers-gitops/blob/main/workloads/surfers-web/catalog-info.yaml
+    - https://github.com/davlloyd/surfers-web/blob/main/tap/catalog-info.yaml
+    - https://github.com/davlloyd/surfers-api/blob/main/tap/catalog-info.yaml
