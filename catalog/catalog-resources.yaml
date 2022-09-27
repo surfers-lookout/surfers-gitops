@@ -10,6 +10,7 @@ metadata:
     backstage.io/kubernetes-id: surferslookout-db
     backstage.io/kubernetes-label-selector: 'app=surferslookout-db'
 spec:
+  location: surfers-org
   type: service
   lifecycle: experimental
   owner: group:surfers-crew
