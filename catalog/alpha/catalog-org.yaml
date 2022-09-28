@@ -6,8 +6,8 @@ metadata:
 spec:
   type: url
   targets:
-    - ./alpha/catalog-users.yaml
-    - ./alpha/catalog-system.yaml
-    - ../workloads/surfers-db/catalog-info.yaml
+    - ./catalog-users.yaml
+    - ./catalog-system.yaml
+    - ../../workloads/surfers-db/catalog-info.yaml
     - https://github.com/davlloyd/surfers-web/blob/main/tap/catalog-info.yaml
     - https://github.com/davlloyd/surfers-api/blob/main/tap/catalog-info.yaml
