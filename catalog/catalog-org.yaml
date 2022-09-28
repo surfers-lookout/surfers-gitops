@@ -1,13 +1,9 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: surfers-org
-  namespace: alpha
+  name: default-org
+  namespace: default
 spec:
   type: url
   targets:
-    - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-users.yaml
-    - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-system.yaml
-    - https://github.com/davlloyd/surfers-gitops/blob/main/catalog/catalog-resources.yaml
-    - https://github.com/davlloyd/surfers-web/blob/main/tap/catalog-info.yaml
-    - https://github.com/davlloyd/surfers-api/blob/main/tap/catalog-info.yaml
+    - ./alpha/catalog-org.yaml
