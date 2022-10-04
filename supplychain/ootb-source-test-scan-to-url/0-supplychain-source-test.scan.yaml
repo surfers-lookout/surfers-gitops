@@ -1,9 +1,11 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterSupplyChain
 metadata:
-  name: scanning-image-scan-to-url
+  name: source-test-scan-to-url
 spec:
   params:
+  - name: maven_repository_url
+    value: https://repo.maven.apache.org/maven2
   - default: main
     name: gitops_branch
   - default: supplychain
@@ -15,13 +17,67 @@ spec:
   - default: ""
     name: gitops_ssh_secret
   resources:
+  - name: source-provider
+    params:
+    - name: serviceAccount
+      value: default
+    - name: gitImplementation
+      value: go-git
+    templateRef:
+      kind: ClusterSourceTemplate
+      name: source-template
+  - name: source-tester
+    sources:
+    - name: source
+      resource: source-provider
+    templateRef:
+      kind: ClusterSourceTemplate
+      name: testing-pipeline
+  - name: source-scanner
+    params:
+    - default: scan-policy
+      name: scanning_source_policy
+    - default: blob-source-scan-template
+      name: scanning_source_template
+    sources:
+    - name: source
+      resource: source-tester
+    templateRef:
+      kind: ClusterSourceTemplate
+      name: source-scanner-template
   - name: image-provider
     params:
     - name: serviceAccount
       value: default
+    - name: registry
+      value:
+        ca_cert_data: ""
+        repository: lloyd-266015/supply-chain
+        server: us.gcr.io
+    - default: default
+      name: clusterBuilder
+    - default: ./Dockerfile
+      name: dockerfile
+    - default: ./
+      name: docker_build_context
+    - default: []
+      name: docker_build_extra_args
+    sources:
+    - name: source
+      resource: source-scanner
     templateRef:
       kind: ClusterImageTemplate
-      name: image-provider-template
+      options:
+      - name: kpack-template
+        selector:
+          matchFields:
+          - key: spec.params[?(@.name=="dockerfile")]
+            operator: DoesNotExist
+      - name: kaniko-template
+        selector:
+          matchFields:
+          - key: spec.params[?(@.name=="dockerfile")]
+            operator: Exists
   - images:
     - name: image
       resource: image-provider
@@ -63,10 +119,6 @@ spec:
         selector:
           matchLabels:
             apps.tanzu.vmware.com/workload-type: worker
-      - name: bluegreen-config-template
-        selector:
-          matchLabels:
-            apps.tanzu.vmware.com/workload-type: bluegreen
   - configs:
     - name: app_def
       resource: app-config
@@ -106,6 +158,8 @@ spec:
     templateRef:
       kind: ClusterTemplate
       name: deliverable-template
+  selector:
+    apps.tanzu.vmware.com/has-tests: "true"
   selectorMatchExpressions:
   - key: apps.tanzu.vmware.com/workload-type
     operator: In
@@ -113,7 +167,3 @@ spec:
     - web
     - server
     - worker
-    - bluegreen
-  selectorMatchFields:
-  - key: spec.image
-    operator: Exists

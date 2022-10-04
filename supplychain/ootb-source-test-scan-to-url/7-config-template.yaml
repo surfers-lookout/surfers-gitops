@@ -1,7 +1,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterConfigTemplate
 metadata:
-  name: bluegreen-config-template
+  name: config-template
 spec:
   configPath: .data
   healthRule:
@@ -31,19 +31,6 @@ spec:
       labels: #@ merge_labels({ "app.kubernetes.io/component": "run", "carto.run/workload-name": data.values.workload.metadata.name })
     spec:
       template: #@ data.values.config
-      traffic:
-        #@ if hasattr(data.values.params, "alternateRevision"):
-        - tag: blue
-          latestRevision: true
-          percent: 50
-        - tag: green
-          revisionName: #@ data.values.params.alternateRevision
-          percent: 50
-        #@ else:
-        - tag: primary
-          latestRevision: true
-          percent: 100
-        #@ end
     #@ end
 
     ---
