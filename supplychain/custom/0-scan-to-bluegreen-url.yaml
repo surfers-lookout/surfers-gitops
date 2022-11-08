@@ -6,16 +6,16 @@ spec:
   params:
   - name: maven_repository_url
     value: https://repo.maven.apache.org/maven2
-  - default: main
-    name: gitops_branch
-  - default: supplychain
-    name: gitops_user_name
-  - default: supplychain
-    name: gitops_user_email
-  - default: supplychain@cluster.local
-    name: gitops_commit_message
-  - default: ""
-    name: gitops_ssh_secret
+  - name: gitops_branch
+    default: main
+  - name: gitops_user_name
+    default: supplychain
+  - name: gitops_user_email
+    default: supplychain@cluster.local
+  - name: gitops_commit_message
+    default: "workload TAP managed"
+  - name: gitops_ssh_secret
+    default: git-access
   resources:
   - name: source-provider
     params:
