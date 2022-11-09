@@ -22,7 +22,7 @@ spec:
           - name: source-revision
         steps:
           - name: test
-            image: python
+            image: python:3.10.8
             script: |-
               echo "+++ python version"
               python --version
