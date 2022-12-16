@@ -1,0 +1,21 @@
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: surferslookout-db
+  namespace: default
+  description: Stores data for the surfers lookout service
+  annotations:
+    backstage.io/kubernetes-id: surferslookout-db
+    backstage.io/kubernetes-label-selector: 'app=surferslookout-db'
+spec:
+  location: surfers-org
+  type: service
+  lifecycle: experimental
+  owner: group:surfers-crew
+  system: surfers-system
+  dependencyOf:
+    - component:surfersweb
+        
+---
