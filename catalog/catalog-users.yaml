@@ -3,6 +3,20 @@
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
+  name: surfers-root
+  #namespace: default
+  description: Overall organisation parent group
+spec:
+  type: root
+  profile:
+    displayName: Surfer Top Level Group
+  children: [surfers-crew]
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
   name: surfers-crew
   #namespace: default
   description: Team focused on the Surfer system

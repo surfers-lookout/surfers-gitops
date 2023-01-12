@@ -7,7 +7,6 @@ metadata:
   #namespace: default
   description: Surfers Lookout Web System
 spec:
-  location: surfers-org
   owner: group:surfers-crew
   domain: surfers-domain
 

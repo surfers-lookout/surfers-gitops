@@ -12,7 +12,7 @@ metadata:
     - web
     - tanzu
   annotations:
-    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=surferslookout'
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=surferslookout,component=backend'
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
