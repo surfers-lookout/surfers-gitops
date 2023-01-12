@@ -9,5 +9,5 @@ spec:
     - ./catalog-users.yaml
     - ./catalog-system.yaml
     - /workloads/surfers-db/catalog/default/catalog-info.yaml
-    - https://github.com/davlloyd/surfers-web/blob/main/catalog/default/catalog-info.yaml
-    - https://github.com/davlloyd/surfers-api/blob/main/catalog/default/catalog-info.yaml
+    - https://github.com/davlloyd/surfers-web/blob/main/catalog/catalog-info.yaml
+    - https://github.com/davlloyd/surfers-api/blob/main/catalog/catalog-info.yaml

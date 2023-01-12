@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: default-org
+  #namespace: default
+spec:
+  type: url
+  targets:
+    - ./default/catalog-org.yaml
