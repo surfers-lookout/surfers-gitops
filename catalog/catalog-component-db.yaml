@@ -1,7 +1,7 @@
 ---
 
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: surferslookout-db
   #namespace: default
@@ -10,7 +10,7 @@ metadata:
     backstage.io/kubernetes-id: surferslookout-db
     backstage.io/kubernetes-label-selector: 'app=surferslookout-db'
 spec:
-  type: service
+  type: database
   lifecycle: experimental
   owner: group:surfers-crew
   system: surfers-system
