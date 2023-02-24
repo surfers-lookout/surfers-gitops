@@ -21,5 +21,5 @@ spec:
     - component:surferslookout-db
     - component:surfersapi
   consumesApis:
-    - surfersapi-tap1.tanzu.rocks
+    - surfersapi-tap2.tanzu.rocks
   
