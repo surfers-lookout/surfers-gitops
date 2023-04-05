@@ -11,3 +11,14 @@ spec:
   domain: surfers-domain
 
 ---
+
+
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: bigbank-system
+  #namespace: default
+  description: The Big Bank System
+spec:
+  owner: group:surfers-crew
+  domain: surfers-domain
