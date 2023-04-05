@@ -7,3 +7,12 @@ spec:
   owner: group:surfers-crew
 
 ---
+
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: bankers-domain
+  description: All related entities aligned to Bankers systems
+spec:
+  owner: group:banking-crew
+

@@ -3,7 +3,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: surfers-location
+  name: headoffice
   #namespace: default
 spec:
   type: url
@@ -16,3 +16,5 @@ spec:
     - ./catalog-component-frontend.yaml
     - ./catalog-component-kyc.yaml
     - ./catalog-component-creditcheck.yaml
+
+---
