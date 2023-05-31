@@ -40,7 +40,7 @@ spec:
         carto.run/workload-name: bigbank-test
     spec:
       containers:
-      - image: us.gcr.io/lloyd-266015/supply-chain/bigbank-test-default@sha256:99de18bfba9c7e4a0899ef62469fa4b3f505a6c40741cc9dc2316715c5d75673
+      - image: us.gcr.io/lloyd-266015/supply-chain/bigbank-test-default@sha256:6801c70c18eff0da6fa4997f03b6dbca660b6caef330e36fd4ed9c7295e885d8
         name: workload
         resources: {}
         securityContext:
