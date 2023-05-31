@@ -1,5 +1,6 @@
 #@data/values
 ---
 namespaces:
+- name: default
 - name: alpha
 - name: beta
