@@ -17,5 +17,5 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: group:surfers-crew
+  owner: group:bankers-crew
   system: bigbank-system
