@@ -219,7 +219,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:attach-watchers
+  dependsOn: 
+    - component:attach-watchers
 
   
 ---
@@ -243,5 +244,6 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:external-screeners
+  dependsOn: 
+    - component:external-screeners
 
