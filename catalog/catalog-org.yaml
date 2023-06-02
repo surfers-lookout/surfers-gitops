@@ -11,9 +11,6 @@ spec:
     - ./catalog-users.yaml
     - ./catalog-domain.yaml
     - ./catalog-system.yaml
-    - ./catalog-component-db.yaml
-    - ./catalog-component-backend.yaml
-    - ./catalog-component-frontend.yaml
     - ./catalog-component-kyc.yaml
     - ./catalog-component-creditcheck.yaml
 
