@@ -19,7 +19,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependencyOf: component:data-validation
+  dependencyOf: 
+    - component:data-validation
 
 ---
 
@@ -42,8 +43,10 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:data-provider
-  dependencyOf: component:risk-assessment
+  dependsOn: 
+    - component:data-provider
+  dependencyOf: 
+    - component:risk-assessment
 
 ---
 
@@ -66,8 +69,10 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:data-validation
-  dependencyOf: component:customer-due-dilligence
+  dependsOn: 
+    - component:data-validation
+  dependencyOf: 
+    - component:customer-due-dilligence
 
 ---
 
@@ -90,7 +95,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:risk-assessment
+  dependsOn: 
+    - component:risk-assessment
   
 
 
@@ -115,8 +121,9 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:customer-due-dilligence
-  
+  dependsOn: 
+    - component:customer-due-dilligence
+    - component:risk-assessment  
 
 ---
 
@@ -139,7 +146,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:kyc-database-checks
+  dependsOn: 
+    - component:kyc-database-checks
 
 
 ---
@@ -163,7 +171,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:screening
+  dependsOn: 
+    - component:screening
 
 ---
 
@@ -186,7 +195,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: component:attach-watchers
+  dependsOn: 
+    - component:attach-watchers
   
 ---
 
