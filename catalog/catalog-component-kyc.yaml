@@ -19,7 +19,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependencyOf: data-validation
+  dependencyOf: component:data-validation
+
 ---
 
 apiVersion: backstage.io/v1alpha1
@@ -41,8 +42,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: data-provider
-  dependencyOf: risk-assessment
+  dependsOn: component:data-provider
+  dependencyOf: component:risk-assessment
 
 ---
 
@@ -65,8 +66,8 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: data-validation
-  dependencyOf: customer-due-dilligence
+  dependsOn: component:data-validation
+  dependencyOf: component:customer-due-dilligence
 
 ---
 
@@ -89,7 +90,7 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: risk-assessment
+  dependsOn: component:risk-assessment
   
 
 
@@ -113,8 +114,8 @@ spec:
   type: database
   lifecycle: experimental
   owner: group:bankers-crew
-  system: kyc-system
-  dependsOn: customer-due-dilligence
+  system: component:kyc-system
+  dependsOn: component:customer-due-dilligence
   
 
 ---
@@ -138,7 +139,7 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: kyc-database-checks
+  dependsOn: component:kyc-database-checks
 
 
 ---
@@ -162,14 +163,14 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: screening
+  dependsOn: component:screening
 
 ---
 
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: External-Notification
+  name: external-notification
   #namespace: default
   description: Service to Notify 3rd party services of KYC Validation
   tags:
@@ -185,14 +186,14 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: attach-watchers
+  dependsOn: component:attach-watchers
   
 ---
 
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: External-Screeners
+  name: external-screeners
   #namespace: default
   description: Final validation via external screeners for customer validation
   tags:
@@ -208,7 +209,7 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: attach-watchers
+  dependsOn: component:attach-watchers
 
   
 ---
@@ -216,7 +217,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Final-Validation
+  name: final-validation
   #namespace: default
   description: Module to Finalise KYC ID validation
   tags:
@@ -232,5 +233,5 @@ spec:
   lifecycle: experimental
   owner: group:bankers-crew
   system: kyc-system
-  dependsOn: External-Screeners
-  
+  dependsOn: component:external-screeners
+
