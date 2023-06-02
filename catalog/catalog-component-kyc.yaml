@@ -114,7 +114,7 @@ spec:
   type: database
   lifecycle: experimental
   owner: group:bankers-crew
-  system: component:kyc-system
+  system: kyc-system
   dependsOn: component:customer-due-dilligence
   
 
