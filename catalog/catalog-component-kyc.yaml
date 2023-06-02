@@ -3,9 +3,31 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: kyc
+  name: data-provider
   #namespace: default
-  description: Big Bank KYC Component
+  description: KYC Customer Data Provider
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: database
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependencyOf: data-validation
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: data-validation
+  #namespace: default
+  description: KYC Customer Data Validation
   tags:
     - app-accelerator
     - python
@@ -18,4 +40,197 @@ spec:
   type: service
   lifecycle: experimental
   owner: group:bankers-crew
-  system: bigbank-system
+  system: kyc-system
+  dependsOn: data-provider
+  dependencyOf: risk-assessment
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: risk-assessment
+  #namespace: default
+  description: KYC Customer Risk Profile Assessment
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: data-validation
+  dependencyOf: customer-due-dilligence
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: customer-due-dilligence
+  #namespace: default
+  description: KYC Customer Validation Due Dilligence
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: risk-assessment
+  
+
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kyc-database-checks
+  #namespace: default
+  description: KYC Credentials Central DB Check
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: database
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: customer-due-dilligence
+  
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: screening
+  #namespace: default
+  description: KYC Data screening
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: database
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: kyc-database-checks
+
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: attach-watchers
+  #namespace: default
+  description: Attach watchers to monitor customer creds
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: screening
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: External-Notification
+  #namespace: default
+  description: Service to Notify 3rd party services of KYC Validation
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: attach-watchers
+  
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: External-Screeners
+  #namespace: default
+  description: Final validation via external screeners for customer validation
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: attach-watchers
+
+  
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Final-Validation
+  #namespace: default
+  description: Module to Finalise KYC ID validation
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: External-Screeners
+  

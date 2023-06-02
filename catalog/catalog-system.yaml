@@ -18,7 +18,21 @@ kind: System
 metadata:
   name: bigbank-system
   #namespace: default
-  description: The Big Bank System
+  description: The Big Bank CC System
 spec:
   owner: group:banking-crew
   domain: bigbank-domain
+
+---
+
+
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: kyc-system
+  #namespace: default
+  description: The Big Bank KYC System
+spec:
+  owner: group:banking-crew
+  domain: bigbank-domain
+
