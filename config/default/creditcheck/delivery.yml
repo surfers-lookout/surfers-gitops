@@ -42,7 +42,7 @@ spec:
         component: backend
     spec:
       containers:
-      - image: us.gcr.io/lloyd-266015/supply-chain/creditcheck-default@sha256:07e68c4d80dd8215fad653bfd8e15fe9391a1a7885c72b1b1f1fe094fd7ef9b1
+      - image: us.gcr.io/lloyd-266015/supply-chain/creditcheck-default@sha256:be43b3e58d5a485f478ae2f6925147c026307fae6367a3d9675346711bb20315
         name: workload
         resources: {}
         securityContext:
