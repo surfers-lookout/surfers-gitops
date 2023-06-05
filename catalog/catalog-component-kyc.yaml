@@ -4,7 +4,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: data-provider
-  #namespace: default
+  namespace: default
   description: KYC Customer Data Provider
   tags:
     - app-accelerator
@@ -28,7 +28,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: data-validation
-  #namespace: default
+  namespace: default
   description: KYC Customer Data Validation
   tags:
     - app-accelerator
@@ -54,7 +54,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: risk-assessment
-  #namespace: default
+  namespace: default
   description: KYC Customer Risk Profile Assessment
   tags:
     - app-accelerator
@@ -80,7 +80,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: customer-due-dilligence
-  #namespace: default
+  namespace: default
   description: KYC Customer Validation Due Dilligence
   tags:
     - app-accelerator
@@ -106,7 +106,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: kyc-database-checks
-  #namespace: default
+  namespace: default
   description: KYC Credentials Central DB Check
   tags:
     - app-accelerator
@@ -131,7 +131,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: screening
-  #namespace: default
+  namespace: default
   description: KYC Data screening
   tags:
     - app-accelerator
@@ -156,7 +156,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: attach-watchers
-  #namespace: default
+  namespace: default
   description: Attach watchers to monitor customer creds
   tags:
     - app-accelerator
@@ -180,7 +180,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: external-notification
-  #namespace: default
+  namespace: default
   description: Service to Notify 3rd party services of KYC Validation
   tags:
     - app-accelerator
@@ -204,7 +204,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: external-screeners
-  #namespace: default
+  namespace: default
   description: Final validation via external screeners for customer validation
   tags:
     - app-accelerator
@@ -229,7 +229,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: final-validation
-  #namespace: default
+  namespace: default
   description: Module to Finalise KYC ID validation
   tags:
     - app-accelerator
