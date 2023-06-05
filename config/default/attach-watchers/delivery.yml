@@ -1,0 +1,54 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: attach-watchers
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: surferslookout
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/language: python
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: attach-watchers
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/debug: "true"
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/initial-scale: "1"
+        autoscaling.knative.dev/max-scale: "50"
+        autoscaling.knative.dev/metric: rps
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/scale-down-delay: 2s
+        autoscaling.knative.dev/target: "60"
+        autoscaling.knative.dev/window: 10s
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: us.gcr.io/lloyd-266015/supply-chain/attach-watchers-source:latest@sha256:0ceb616979e3c54907be207eceb893cd74d999b09a45282362f0cd0146fe79b9
+        developer.conventions/target-containers: workload
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: surferslookout
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/language: python
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: attach-watchers
+    spec:
+      containers:
+      - env:
+        - name: COLOR
+          value: blue
+        image: us.gcr.io/lloyd-266015/supply-chain/attach-watchers-default@sha256:b2d38e21b80cb76443c126d10aefb84e56b619bcd87ef794a1a55693682404e5
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
