@@ -269,14 +269,16 @@ spec:
   type: service
   lifecycle: experimental
   owner: group:bankers-crew
-  system: kyc-system
+  system: bigbank-system
   dependsOn: 
     - component:data-provider
     - component:data-validation
     - component:risk-assessment
     - component:customer-due-dilligence
     - component:external-screeners
+    - component:external-notification
     - component:attach-watchers
     - component:screening
     - component:kyc-database-checks
+    - component:final-validation
 
