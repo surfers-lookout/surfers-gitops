@@ -173,6 +173,7 @@ spec:
   system: kyc-system
   dependsOn: 
     - component:screening
+    - component:kyc-database-checks
 
 ---
 
@@ -221,6 +222,7 @@ spec:
   system: kyc-system
   dependsOn: 
     - component:attach-watchers
+  
 
   
 ---
@@ -246,4 +248,35 @@ spec:
   system: kyc-system
   dependsOn: 
     - component:external-screeners
+
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kyc
+  namespace: default
+  description: KYC System
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:bankers-crew
+  system: kyc-system
+  dependsOn: 
+    - component:data-provider
+    - component:data-validation
+    - component:risk-assessment
+    - component:customer-due-dilligence
+    - component:external-screeners
+    - component:attach-watchers
+    - component:screening
+    - component:kyc-database-checks
 
