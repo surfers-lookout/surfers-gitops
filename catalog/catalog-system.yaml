@@ -22,4 +22,6 @@ metadata:
 spec:
   owner: group:banking-crew
   domain: bigbank-domain
+  dependencyOf: 
+    - system:bigbank-system
 
