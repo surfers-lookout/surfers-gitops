@@ -1,7 +1,7 @@
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: data-provider
   namespace: default
@@ -44,7 +44,7 @@ spec:
   owner: group:bankers-crew
   system: kyc-system
   dependsOn: 
-    - component:data-provider
+    - resource:data-provider
   dependencyOf: 
     - component:risk-assessment
 
@@ -128,7 +128,7 @@ spec:
 ---
 
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: screening
   namespace: default
@@ -172,7 +172,7 @@ spec:
   owner: group:bankers-crew
   system: kyc-system
   dependsOn: 
-    - component:screening
+    - resource:screening
     - component:kyc-database-checks
 
 ---
@@ -269,16 +269,16 @@ spec:
   type: service
   lifecycle: experimental
   owner: group:bankers-crew
-  system: bigbank-system
+  system: kyc-system
   dependsOn: 
-    - component:data-provider
+    - resource:data-provider
     - component:data-validation
     - component:risk-assessment
     - component:customer-due-dilligence
     - component:external-screeners
     - component:external-notification
     - component:attach-watchers
-    - component:screening
+    - resource:screening
     - component:kyc-database-checks
     - component:final-validation
 
