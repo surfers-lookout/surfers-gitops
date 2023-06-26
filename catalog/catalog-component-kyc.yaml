@@ -139,7 +139,7 @@ metadata:
     - web
     - tanzu
   annotations:
-    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=backend'
     backstage.io/techdocs-ref: dir:.
 spec:
   type: database
@@ -164,7 +164,7 @@ metadata:
     - web
     - tanzu
   annotations:
-    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=frontend'
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/part-of=bigbank,component=backend'
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
