@@ -1,0 +1,51 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: data-validation
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    apis.apps.tanzu.vmware.com/register-api: "true"
+    app.kubernetes.io/part-of: bigbank
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/language: python
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: data-validation
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/initial-scale: "1"
+        autoscaling.knative.dev/max-scale: "50"
+        autoscaling.knative.dev/metric: rps
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/scale-down-delay: 2s
+        autoscaling.knative.dev/target: "60"
+        autoscaling.knative.dev/window: 10s
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"apis.apps.tanzu.vmware.com/register-api":"true","app.kubernetes.io/part-of":"bigbank","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/language":"python","apps.tanzu.vmware.com/workload-type":"web"},"name":"data-validation","namespace":"default"},"spec":{"params":[{"name":"clusterBuilder","value":"full-jammy"},{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/language":"python"}},{"name":"annotations","value":{"autoscaling.knative.dev/initial-scale":"1","autoscaling.knative.dev/max-scale":"50","autoscaling.knative.dev/metric":"rps","autoscaling.knative.dev/min-scale":"1","autoscaling.knative.dev/scale-down-delay":"2s","autoscaling.knative.dev/target":"60","autoscaling.knative.dev/window":"10s"}},{"name":"api_descriptor","value":{"description":"Bigbank REST API accelerator","location":{"path":"/api/v1/api-docs"},"owner":"group:banker-crew","system":"bigbank-system","type":"openapi"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/surfers-lookout/data-validation"}}}}
+      labels:
+        apis.apps.tanzu.vmware.com/register-api: "true"
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: bigbank
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/language: python
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: data-validation
+    spec:
+      containers:
+      - image: us.gcr.io/lloyd-266015/supply-chain/data-validation-default@sha256:bd43217a5c1fff74e964fc9db4d3d59723441895ede454c0e46f670ef0736878
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
