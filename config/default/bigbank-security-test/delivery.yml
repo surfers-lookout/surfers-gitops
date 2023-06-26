@@ -1,0 +1,56 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: bigbank-security-test
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: surferslookout
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/language: python
+    apps.tanzu.vmware.com/workload-type: web
+    component: frontend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: bigbank-security-test
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/debug: "true"
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/initial-scale: "1"
+        autoscaling.knative.dev/max-scale: "50"
+        autoscaling.knative.dev/metric: rps
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/scale-down-delay: 2s
+        autoscaling.knative.dev/target: "60"
+        autoscaling.knative.dev/window: 10s
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: us.gcr.io/lloyd-266015/supply-chain/bigbank-security-test-source:latest@sha256:980e57806d76acfa2dbf15fff27ab75ed0f33202ff0c4d2207d758c95ec18f94
+        developer.conventions/target-containers: workload
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: surferslookout
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/language: python
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: bigbank-security-test
+        component: frontend
+    spec:
+      containers:
+      - env:
+        - name: COLOR
+          value: green
+        image: us.gcr.io/lloyd-266015/supply-chain/bigbank-security-test-default@sha256:178bbd3a4078d198a30a86450b0e12ed7df6d3fc94f7c8568c5d16eb1c144158
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
