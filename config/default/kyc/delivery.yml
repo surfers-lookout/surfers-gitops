@@ -41,7 +41,7 @@ spec:
       - env:
         - name: COLOR
           value: blue
-        image: us.gcr.io/lloyd-266015/supply-chain/kyc-default@sha256:cf610e68b981ff1eccaf14e18d55d347d72835c33f70521c1aa7f8f84ff7d7f1
+        image: us.gcr.io/lloyd-266015/supply-chain/kyc-default@sha256:bc992a17d7107874f31e4e31f9c2c1b6b2bf0a17fdf0b709b2d7381a0ac9cc00
         name: workload
         resources: {}
         securityContext:
