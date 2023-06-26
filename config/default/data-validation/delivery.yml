@@ -12,6 +12,7 @@ metadata:
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/language: python
     apps.tanzu.vmware.com/workload-type: web
+    component: backend
     app.kubernetes.io/component: run
     carto.run/workload-name: data-validation
 spec:
@@ -40,6 +41,7 @@ spec:
         apps.tanzu.vmware.com/language: python
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: data-validation
+        component: backend
     spec:
       containers:
       - image: us.gcr.io/lloyd-266015/supply-chain/data-validation-default@sha256:bd43217a5c1fff74e964fc9db4d3d59723441895ede454c0e46f670ef0736878
