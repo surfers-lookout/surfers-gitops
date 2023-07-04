@@ -4,3 +4,5 @@ namespaces:
 - name: default
 - name: alpha
 - name: beta
+- name: charlie
+- name: delta
